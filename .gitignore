@@ -1,45 +1,18 @@
 ```
-# Python
+# Dependencies
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
 venv/
 .venv/
-.ENV
-.ENV.*
-.venv.bak/
-.python-version
-.pytest_cache/
-.mypy_cache/
-.coverage
-htmlcov/
-
-# Compiled and build artifacts
-*.o
-*.obj
-*.out
-*.dll
-*.so
-*.a
-*.class
-
-# Dependencies
-node_modules/
-target/
-.gradle/
-julia-*/
-zig*/
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
-
-# Environment
 .env
 .env.local
 *.env.*
@@ -50,11 +23,19 @@ zig*/
 *.swp
 *.swo
 
-# System
-.DS_Store
-Thumbs.db
+# Logs
+*.log
 
 # Coverage
+.coverage
 coverage/
 htmlcov/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
 ```
