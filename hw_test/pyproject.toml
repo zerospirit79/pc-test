@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hw-test"
+version = "2.0.0"
+description = "Hardware compatibility testing tool for ALT Linux (based on Basalt SPo methodology)"
+readme = "README.md"
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "Basalt SPo Team", email = "support@basealt.ru"}
+]
+maintainers = [
+    {name = "HW Test Team", email = "hwtest@basealt.ru"}
+]
+keywords = ["hardware", "testing", "compatibility", "ALT", "Linux", "benchmark"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Hardware",
+    "Topic :: System :: Benchmark",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "psutil>=5.9.0",
+    "py-cpuinfo>=9.0.0",
+    "packaging>=21.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+hw-test = "hw_test.cli:main"
+
+[project.urls]
+Homepage = "https://www.basealt.ru"
+Repository = "https://github.com/basealt/hw-test"
+Documentation = "https://docs.basealt.ru/hw-test"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hw_test*"]
+
+[tool.setuptools.package-data]
+hw_test = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
