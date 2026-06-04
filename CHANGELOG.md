@@ -1,5 +1,63 @@
 # Changelog
 
+## [2.2.0-alt1] - 2026-06-04
+
+### Added
+
+- Полная реализация pc-test на **Python 3**:
+  - точка входа `pc-test`, главный цикл и CLI;
+  - пакет `pc_test` в `%python3_sitelibdir` с модулями шагов (`pc_test/steps/`);
+  - GUI: `pc_test/gui/forms.py` (tkinter, fallback yad/dialog);
+  - конфигурация плана тестов: `pc_test/gui/config_forms.py`;
+  - экспресс-тест: `pc_test/steps/express.py`;
+  - автозапуск: `launcher.py`, `resume.py`.
+- Зависимость RPM: `python3`, `python3-base`.
+- Список сохраняемых настроек: `pc_test/internal_vars.py`.
+- Из upstream 2.1.7: поддержка ALT SP 10.2.2, ALT Virtualization 11 PVE,
+  улучшенная работа в Wayland-сессии.
+- Из upstream 2.1.8: исправлены зависимости для экспресс-теста
+  (`xdg-utils`, `pulseaudio-utils`).
+
+### Changed
+
+- `check-scripts.sh` проверяет Python (`compileall`) и только l10n `*.sh`.
+- Desktop и autostart используют `launcher.py` / `resume.py`.
+- Тонкие обёртки `launcher.sh` / `resume.sh` вызывают Python-скрипты.
+
+### Removed
+
+- Удалены устаревшие bash-модули: `common.sh`, `parser.sh`, `defaults.sh`,
+  `internal.sh`, `step-gui.sh`, все `steps/*.sh` (логика перенесена в Python).
+- Локализация по-прежнему в `l10n/*/*.sh` (загрузка через `pc_test/l10n.py`).
+- Из upstream 2.1.7: удалены ссылки на заблокированные VK-видео.
+
+[2.2.0-alt1]: https://github.com/klark973/pc-test/releases/tag/2.2.0-alt1
+
+## [2.1.8-alt1] - 2026-03-23
+
+### Fixed
+
+- install dependencies for express test
+- improved CHANGELOG
+
+[2.1.8-alt1]: https://github.com/klark973/pc-test/releases/tag/2.1.8-alt1
+
+## [2.1.7-alt1] - 2026-03-15
+
+### Added
+
+- support for ALT PVE 11 and ALT SP 10.2.2
+
+### Fixed
+
+- improved support of the wayland server
+
+### Removed
+
+- deleted links to blocked VK videos
+
+[2.1.7-alt1]: https://github.com/klark973/pc-test/releases/tag/2.1.7-alt1
+
 ## [2.1.6-alt1] - 2025-09-08
 
 ### Fixed

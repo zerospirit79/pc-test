@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=pc-test resume
+Comment=Resume PC Test after reboot
+Icon=utilities-system-monitor
+Exec=@pc_test_libdir@/resume.py
+Terminal=false
+Hidden=false
+NoDisplay=false
+OnlyShowIn=KDE;GNOME;XFCE;MATE;
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=10
+X-KDE-StartupCondition=desktop
+X-KDE-autostart-after=panel
+Categories=System;Utility;
