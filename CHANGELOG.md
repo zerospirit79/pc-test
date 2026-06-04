@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.2.0-alt1] - 2026-06-04
+
+### Added
+
+- Полная реализация pc-test на **Python 3**:
+  - точка входа `pc-test`, главный цикл и CLI;
+  - пакет `pc_test` в `%python3_sitelibdir` с модулями шагов (`pc_test/steps/`);
+  - GUI: `pc_test/gui/forms.py` (tkinter, fallback yad/dialog);
+  - конфигурация плана тестов: `pc_test/gui/config_forms.py`;
+  - экспресс-тест: `pc_test/steps/express.py`;
+  - автозапуск: `launcher.py`, `resume.py`.
+- Зависимость RPM: `python3`, `python3-base`.
+- Список сохраняемых настроек: `pc_test/internal_vars.py`.
+
+### Changed
+
+- `check-scripts.sh` проверяет Python (`compileall`) и только l10n `*.sh`.
+- Desktop и autostart используют `launcher.py` / `resume.py`.
+- Тонкие обёртки `launcher.sh` / `resume.sh` вызывают Python-скрипты.
+
+### Removed
+
+- Удалены устаревшие bash-модули: `common.sh`, `parser.sh`, `defaults.sh`,
+  `internal.sh`, `step-gui.sh`, все `steps/*.sh` (логика перенесена в Python).
+- Локализация по-прежнему в `l10n/*/*.sh` (загрузка через `pc_test/l10n.py`).
+
+[2.2.0-alt1]: https://github.com/klark973/pc-test/releases/tag/2.2.0-alt1
+
 ## [2.1.6-alt1] - 2025-09-08
 
 ### Fixed

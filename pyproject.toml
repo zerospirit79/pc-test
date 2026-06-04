@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pc-test"
+version = "2.2.0"
+description = "Computers and servers test suite for ALT Linux"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.9"
+authors = [
+    { name = "Pavel Shilov", email = "zerospirit@altlinux.org" },
+]
+keywords = ["altlinux", "hardware", "testing"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Hardware",
+]
+
+[project.urls]
+Homepage = "https://github.com/klark973/pc-test"
+Documentation = "https://www.basealt.ru/product-compatibility"
+
+[project.scripts]
+pc-test = "pc_test.main:main"
+
+[tool.setuptools.packages.find]
+where = ["python3"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 99
+src = ["python3"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear (light)
+]
+ignore = [
+    "E501",  # legacy long lines
+    "B007",  # unused loop control variable in legacy parsers
+    "B008",  # function call in default argument
+    "UP006",  # PEP 585 typing (legacy codebase)
+    "UP035",  # deprecated typing imports (legacy codebase)
+    "UP045",  # X | None annotations (legacy codebase)
+    "UP007",  # Union X | Y in Optional (legacy codebase)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pc_test"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["python3"]

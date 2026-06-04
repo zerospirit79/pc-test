@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 ###
 ### This file is covered by the GNU General Public License
 ### version 3 or later.
@@ -28,6 +29,8 @@ L054="Rebooting the system..."
 L100="Try #%s/3 of a system update has been failed"
 L101="Server with the local mirror is connected"
 L102="External media with the mirror is connected"
+L103="Configuring APT repositories for branch %s"
+L104="System/kernel update finished with errors (see log). Testing will continue."
 L190="Searching active SWAP devices"
 L191="Suitable SWAP device found: @BOLD@"
 L192="Searching for other mounted devices"

@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 ###
 ### This file is covered by the GNU General Public License
 ### version 3 or later.

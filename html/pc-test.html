@@ -3038,7 +3038,7 @@ Corrected error received</code>, со временем забивая весь �
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-console" data-lang="console"><strong># update-grub</strong>
-<strong># systemctl stop systemd-journald</strong>
+<strong># systemctl stop systemd-journald.socket systemd-journald-dev-log.socket systemd-journald-audit.socket systemd-journald.service</strong>
 <strong># rm -rf /var/log/journal/* </strong>
 <strong># reboot -f</strong></code></pre>
 </div>
